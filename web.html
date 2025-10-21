@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Zapatillas Genial</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+        .contenedor { 
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        header .nav a {
+            color: #555;
+            margin: 0 10px;
+        }
+        .logo { font-weight: bold; }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 60px;
+        }
+        .hero h1 {
+            font-size: 45px;
+        }
+
+        .beneficios-seccion {
+            background-color: #f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+        }
+        .beneficio-item {
+            width: 30%;
+        }
+
+        .banner {
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 50px;
+            text-align: center;
+            color: #fff;
+        }
+        .banner h2 {
+            font-size: 32px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .productos-seccion {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .productos-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .producto-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            flex-basis: 30%;
+            text-align: left;
+        }
+
+        .historia-seccion {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 20px;
+        }
+        .historia-seccion .texto a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #d98d52;
+            color: #382d23;
+            padding: 50px 20px;
+        }
+        .pie-division {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .espacio {
+            padding: 0 15px;
+        }
+        .espacio a, .espacio p {
+            color: #382d23;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="contenedor">
+        <div class="logo"><strong>SNEAKERS</strong></div>
+        <nav class="nav"> 
+            <a href="./web.html">Inicio</a>
+            <a href="./productos.html">Productos</a>
+            <a href="./tienda.html">Tienda</a> 
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section id="inicio" class="hero">
+            <div class="texto">
+                <h1>Compra tus Zapatillas</h1>
+                <p><strong>50+</strong> Zapatillas | <strong>100+</strong> Marcas</p>
+            </div>
+            <div class="imagen">
+                <img src="principal.png" alt="Zapatilla dibujada">
+            </div>
+        </section>
+    </main>
+
+    <section id="servicios" class="beneficios-seccion">
+        <div class="beneficio-item">
+            <h3>Asesoramiento</h3>
+            <p>Te ayudamos a elegir tu estilo.</p>
+        </div>
+        <div class="beneficio-item">
+            <h3>Envíos Rápidos</h3>
+            <p>Envíos gratis y seguros al 100%.</p>
+        </div>
+        <div class="beneficio-item">
+            <h3>Soporte 24/7</h3>
+            <p>Ayuda cuando la necesites.</p>
+        </div>
+    </section>
+
+    <section class="banner">
+      
+        </section>
+
+    <section id="productos" class="productos-seccion contenedor">
+        <h2>Novedades</h2>
+        <div class="productos-grid">
+            <div class="producto-card">
+                <img src="./z1.png" alt="Air Jordan 4">
+                <h3>Air Jordan 4 Retro</h3>
+                <p>190 €</p>
+            </div>
+            <div class="producto-card">
+                <img src="./z2.png" alt="Air Jordan 5">
+                <h3>Air Jordan 5 Retro</h3>
+                <p>210 €</p>
+            </div>
+            <div class="producto-card">
+                <img src="./z3.png" alt="Jordan Zion">
+                <h3>Jordan Zion 2</h3>
+                <p>150 €</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="historia" class="historia-seccion contenedor">
+        <div class="imagen">
+            <img src="zamarillas.png" alt="Zapatillas amarillas">
+        </div>
+        <div class="texto">
+            <h3>La historia de las Jordan</h3>
+            <p>La línea Air Jordan debe su nombre a Michael Jordan. Las Air Jordan 1 fueron las primeras y desde entonces la marca no ha parado de crecer.</p>
+            <a href="./productos.html">Ver más productos</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="pie-division">
+            <div class="espacio">
+                <h4>Contáctanos</h4>
+                <p>Infojordan@gmail.com</p>
+                <p>Carlos Hurtado Cánovas</p>
+            </div>
+            <div class="espacio">
+                <h4>Información</h4>
+                <a href="#">Sobre</a>
+                <a href="#">Productos</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="espacio">
+                <h4>Compañía</h4>
+                <a href="#">Community</a>
+                <a href="#">Sobre Nosotros</a>
+            </div>
+            <div class="espacio">
+                <h4>Contacto</h4>
+                <a href="#">Redes Sociales</a>
+                <a href="#">Teléfono</a>
+                <a href="#">Dirección</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
