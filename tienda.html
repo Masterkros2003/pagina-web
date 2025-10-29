@@ -31,10 +31,15 @@
             align-items: center;
             padding: 10px 20px;
             border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
         }
-        header .nav a {
+        header nav.nav a {
             color: #555;
             margin: 0 10px;
+            font-size: 16px;
         }
         .logo { font-weight: bold; }
 
@@ -95,12 +100,37 @@
             margin: 0; 
         }
 
+        /* --- INICIO: Estilos del Footer --- */
+        footer {
+            background-color: #d98d52;
+            color: #382d23;
+            padding: 50px 20px;
+            /* Clearfix para que el footer aparezca después de los elementos flotantes */
+            clear: both; 
+        }
+        .pie-division {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .espacio {
+            padding: 0 15px;
+        }
+        .espacio a, .espacio p {
+            color: #382d23;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        /* --- FIN: Estilos del Footer --- */
+
     </style>
 </head>
 
 <body>
    <header class="contenedor">
-        <div class="logo"><strong>SNEAKERS</strong></div>
+        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
         <nav class="nav"> 
             <a href="./index.html">Inicio</a>
             <a href="./productos.html">Productos</a>
@@ -142,49 +172,76 @@
             <div class="contenido-productos">
                 <h2>Catálogo Completo</h2>
 
-         <div class="productos-grid">
-                  <div class="productos-grid">
-                <a href="./producto2.html" class="tarjeta-zapatilla">
-                    <img src="./z1.png" alt="Air Jordan 4 Retro 'Cave Stone' [GS]">
-                    <h3>Air Jordan 4 Retro 'Cave Stone' [GS]</h3>
-                    <p>150 €</p>
-                </a>
-                
-                <a href="./producto1.html" class="tarjeta-zapatilla">
-                    <img src="./z2.png" alt="Air Jordan 5 Retro OG 'Fire Red'">
-                    <h3>Air Jordan 5 Retro OG 'Fire Red'</h3>
-                    <p>210 €</p>
-                </a>
-                
-                <a href="./producto6.html" class="tarjeta-zapatilla">
-                    <img src="./z3.png" alt="Jordan Zion 4 'Voodoo'">
-                    <h3>Jordan Zion 4 'Voodoo'</h3>
-                    <p>150 €</p>
-                </a>
-            </div>
-         <div class="productos-grid">
-                  <div class="productos-grid">
-                <a href="./producto5.html" class="tarjeta-zapatilla">
-                    <img src="./z4.png" alt="Air Jordan 4 Retro 'Cave Stone' [GS]">
-                    <h3>Air Jordan 4 Retro 'Cave Stone' [GS]</h3>
-                    <p>150 €</p>
-                </a>
-                
-                <a href="./producto4.html" class="tarjeta-zapatilla">
-                    <img src="./z5.png" alt="Air Jordan 5 Retro OG 'Fire Red'">
-                    <h3>Air Jordan 5 Retro OG 'Fire Red'</h3>
-                    <p>210 €</p>
-                </a>
-                
-                <a href="./producto3.html" class="tarjeta-zapatilla">
-                    <img src="./z6.png" alt="Jordan Zion 4 'Voodoo'">
-                    <h3>Jordan Zion 4 'Voodoo'</h3>
-                    <p>150 €</p>
-                </a>
+                 <div class="productos-grid">
+                        <a href="./producto2.html" class="tarjeta-zapatilla">
+                            <img src="./z1.png" alt="Air Jordan 4 Retro 'Cave Stone' [GS]">
+                            <h3>Air Jordan 4 Retro 'Cave Stone'</h3>
+                            <p>250 €</p>
+                        </a>
+                        
+                       
+                        
+                        <a href="./producto1.html" class="tarjeta-zapatilla">
+                            <img src="./z2.png" alt="Air Jordan 5 Retro OG 'Fire Red'">
+                            <h3>Air Jordan 5 Retro OG 'Fire Red'</h3>
+                            <p>230 €</p>
+                        </a>
+                        
+                        <a href="./producto6.html" class="tarjeta-zapatilla">
+                            <img src="./z3.png" alt="Jordan Zion 4 'Voodoo'">
+                            <h3>Jordan Zion 4 'Voodoo'</h3>
+                            <p>170 €</p>
+                        </a>
+                    
+                        <a href="./producto5.html" class="tarjeta-zapatilla">
+                            <img src="./z4.png" alt="Air Jordan 3 Retro 'Pure Money'">
+                            <h3>Air Jordan 3 Retro 'Pure Money'</h3>
+                            <p>190 €</p>
+                        </a>
+                        
+                        <a href="./producto4.html" class="tarjeta-zapatilla">
+                            <img src="./z5.png" alt="Jordan x PSG Spizike Low">
+                            <h3>Jordan x PSG Spizike Low</h3>
+                            <p>110 €</p>
+                        </a>
+                        
+                        <a href="./producto3.html" class="tarjeta-zapatilla">
+                            <img src="./z6.png" alt="Saucony x Metagrid Progrid Paramount">
+                            <h3>Saucony x Metagrid Progrid Paramount</h3>
+                            <p>150 €</p>
+                        </a>
+                </div>
             </div>
         </section>
 
     </main>
 
-</body>
+    <footer>
+        <div class="pie-division">
+            <div class="espacio">
+                <h4>Contáctanos</h4>
+                <p>Infojordan@gmail.com</p>
+                <p>Carlos Hurtado Cánovas</p>
+            </div>
+            <div class="espacio">
+                <h4>Información</h4>
+                <a href="#">Sobre</a>
+                <a href="#">Productos</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="espacio">
+                <h4>Compañía</h4>
+                <a href="#">Community</a>
+                <a href="#">Sobre Nosotros</a>
+            </div>
+            <div class="espacio">
+                <h4>Contacto</h4>
+                <a href="#">Redes Sociales</a>
+                <a href="#">Teléfono</a>
+                <a href="#">Dirección</a>
+            </div>
+        </div>
+        <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+    </footer>
+    </body>
 </html>

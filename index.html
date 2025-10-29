@@ -31,10 +31,18 @@
             align-items: center;
             padding: 10px 20px;
             border-bottom: 1px solid #eee;
+            /* --- CORRECCIÓN: Navbar Fija --- */
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            /* --- FIN CORRECCIÓN --- */
         }
-        header .nav a {
+        /* --- CORRECCIÓN: Estilo de Navegación Unificado --- */
+        header nav.nav a {
             color: #555;
             margin: 0 10px;
+            font-size: 16px;
         }
         .logo { font-weight: bold; }
 
@@ -87,6 +95,8 @@
             padding: 15px;
             flex-basis: 30%;
             text-align: left;
+            /* --- CORRECCIÓN: Asegurar que la tarjeta (ahora un <a>) se comporte como bloque --- */
+            display: block;
         }
 
         .historia-seccion {
@@ -129,7 +139,7 @@
 <body>
 
     <header class="contenedor">
-        <div class="logo"><strong>SNEAKERS</strong></div>
+        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
         <nav class="nav"> 
             <a href="./index.html">Inicio</a>
             <a href="./productos.html">Productos</a>
@@ -171,23 +181,22 @@
     <section id="productos" class="productos-seccion contenedor">
         <h2>Novedades</h2>
         <div class="productos-grid">
-            <div class="producto-card">
+            <a href="./producto2.html" class="producto-card">
                 <img src="./z1.png" alt="Air Jordan 4">
                 <h3>Air Jordan 4 Retro</h3>
                 <p>190 €</p>
-            </div>
-            <div class="producto-card">
+            </a>
+            <a href="./producto1.html" class="producto-card">
                 <img src="./z2.png" alt="Air Jordan 5">
                 <h3>Air Jordan 5 Retro</h3>
                 <p>210 €</p>
-            </div>
-            <div class="producto-card">
+            </a>
+            <a href="./producto6.html" class="producto-card">
                 <img src="./z3.png" alt="Jordan Zion">
                 <h3>Jordan Zion 2</h3>
                 <p>150 €</p>
-                
+            </a>
             </div>
-        </div>
     </section>
 
     <section id="historia" class="historia-seccion contenedor">

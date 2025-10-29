@@ -35,13 +35,21 @@
             align-items: center;
             padding: 10px 20px;
             border-bottom: 1px solid #eee;
+            /* --- CORRECCIÓN: Navbar Fija --- */
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            /* --- FIN CORRECCIÓN --- */
         }
         .logo { font-weight: bold; }
-        .nav-links a {
+        /* --- CORRECCIÓN: Selector CSS corregido y unificado --- */
+        nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
         }
+        /* --- FIN CORRECCIÓN --- */
 
         #detalle-producto {
             display: flex;
@@ -136,7 +144,7 @@
 
 <body>
    <header class="contenedor">
-        <div class="logo"><strong>SNEAKERS</strong></div>
+        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
         <nav class="nav"> 
             <a href="./index.html">Inicio</a>
             <a href="./productos.html">Productos</a>
