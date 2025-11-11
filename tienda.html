@@ -5,26 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Completa - Zapatillas</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <audio autoplay loop>
+  <source src="videoplayback.m4a" type="audio/mpeg">
+</audio>
     <style>
-       body {
+        html {
+            height: 100%; 
+        }
+        
+        body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .contenedor { 
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+
         img {
             max-width: 100%;
+            display: block; 
         }
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
+        .contenedor-centrado {
+            max-width: 1280px; 
+            margin: 0 auto;
+            padding: 0 20px; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex; 
+        }
+
         
-        /* ENCABEZADO */
         header {
             display: flex;
             justify-content: space-between;
@@ -35,116 +56,204 @@
             top: 0;
             background-color: white;
             z-index: 1000;
+           
         }
+
+        .header-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1280px; 
+            margin: 0 auto;
+        }
+
         header nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
         }
-        .logo { font-weight: bold; }
 
+        .logo {
+            font-weight: bold;
+        }
+        
+       
+        #seccion-tienda {
+            display: flex;
+            width: 100%;
+        }
+
+       
         .columna-filtros {
-            width: 200px;
-            float: left;
+            width: 250px;
+            flex-shrink: 0;
             padding: 20px;
             border-right: 1px solid #eee;
+            box-sizing: border-box;
+            
+            
+            position: sticky;
+            top: 60px; 
+            height: calc(100vh - 60px); 
+            overflow-y: auto; 
         }
+
         .columna-filtros h3 {
-            color: #d98d52; 
+            color: #d98d52;
+            margin-top: 0;
         }
-        .columna-filtros select, .columna-filtros button {
+
+        .columna-filtros label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .columna-filtros select,
+        .columna-filtros button {
             width: 100%;
-            padding: 5px;
+            padding: 8px; 
             margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+            box-sizing: border-box;
         }
+
         .columna-filtros button {
             background-color: #333;
             color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
         }
 
-        .contenido-productos {
-            width: 850px;
-            float: left;
-            padding: 0 10px;
+        .columna-filtros button:hover {
+            background-color: #555;
         }
+
+       
+        .contenido-productos {
+            flex-grow: 1; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         .contenido-productos h2 {
             text-align: left;
+            margin-top: 0;
             margin-bottom: 20px;
         }
-        
+
+      
         .productos-grid {
-            overflow: auto; 
-            margin-left: -15px;
-        }
-        .tarjeta-zapatilla {
-            width: 250px; 
-            float: left;
-            margin-left: 15px;
-            padding: 10px; 
-            text-align: center; 
-            border: 1px solid #ddd;
-            margin-bottom: 20px; 
-        }
-        
-        .tarjeta-zapatilla img {
-            height: 150px; 
-            object-fit: contain; 
-        }
-        .tarjeta-zapatilla h3 {
-            font-size: 15px; 
-            margin: 8px 0 2px 0; 
-        }
-        .tarjeta-zapatilla p {
-            font-size: 13px; 
-            color: #888; 
-            margin: 0; 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px; 
         }
 
-        /* --- INICIO: Estilos del Footer --- */
+        .tarjeta-zapatilla {
+           
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px; 
+            transition: box-shadow 0.3s;
+        }
+        
+        .tarjeta-zapatilla:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+
+        .tarjeta-zapatilla img {
+            height: 170px; 
+            object-fit: contain;
+            margin: 0 auto; 
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-zapatilla h3 {
+            font-size: 15px;
+            margin: 8px 0 2px 0;
+            color: #333;
+        }
+
+        .tarjeta-zapatilla p {
+            font-size: 14px;
+            color: #888;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        
         footer {
             background-color: #d98d52;
             color: #382d23;
             padding: 50px 20px;
-            /* Clearfix para que el footer aparezca después de los elementos flotantes */
-            clear: both; 
         }
+
         .pie-division {
             display: flex;
             justify-content: space-between;
-            max-width: 1100px;
+            flex-wrap: wrap;
+            gap: 20px; 
+            max-width: 1280px; 
             margin: 0 auto;
         }
+
         .espacio {
             padding: 0 15px;
+            min-width: 150px; 
         }
-        .espacio a, .espacio p {
+
+        .espacio a,
+        .espacio p {
             color: #382d23;
             display: block;
             margin-bottom: 12px;
             font-size: 14px;
         }
-        /* --- FIN: Estilos del Footer --- */
 
+        .footer-legal {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #382d23;
+        }
+        .footer-legal a {
+            font-weight: bold;
+        }
+        .footer-legal img {
+            max-width: 1em;
+            max-height: 1em;
+            margin-left: .2em;
+            display: inline; 
+            vertical-align: middle;
+        }
     </style>
 </head>
 
 <body>
-   <header class="contenedor">
-        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
-        <nav class="nav"> 
-            <a href="./index.html">Inicio</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./tienda.html">Tienda</a> 
-        </nav>
+    <header>
+        <div class="header-contenido">
+            <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
+            <nav class="nav">
+                <a href="./index.html">Inicio</a>
+                <a href="./productos.html">Productos</a>
+                <a href="./tienda.html">Tienda</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        
-        <section id="seccion-tienda" class="contenedor-principal">
-            
+        <section id="seccion-tienda">
+
             <div class="columna-filtros">
                 <h3>Filtrar Productos</h3>
-                
+
                 <label for="marca">Marca:</label>
                 <select id="marca">
                     <option>Todas las Marcas</option>
@@ -152,7 +261,7 @@
                     <option>Saucony</option>
                     <option>Nike</option>
                 </select>
-                
+
                 <label for="talla">Talla:</label>
                 <select id="talla">
                     <option>Cualquiera</option>
@@ -172,48 +281,45 @@
             <div class="contenido-productos">
                 <h2>Catálogo Completo</h2>
 
-                 <div class="productos-grid">
-                        <a href="./producto2.html" class="tarjeta-zapatilla">
-                            <img src="./z1.png" alt="Air Jordan 4 Retro 'Cave Stone' [GS]">
-                            <h3>Air Jordan 4 Retro 'Cave Stone'</h3>
-                            <p>250 €</p>
-                        </a>
-                        
-                       
-                        
-                        <a href="./producto1.html" class="tarjeta-zapatilla">
-                            <img src="./z2.png" alt="Air Jordan 5 Retro OG 'Fire Red'">
-                            <h3>Air Jordan 5 Retro OG 'Fire Red'</h3>
-                            <p>230 €</p>
-                        </a>
-                        
-                        <a href="./producto6.html" class="tarjeta-zapatilla">
-                            <img src="./z3.png" alt="Jordan Zion 4 'Voodoo'">
-                            <h3>Jordan Zion 4 'Voodoo'</h3>
-                            <p>170 €</p>
-                        </a>
-                    
-                        <a href="./producto5.html" class="tarjeta-zapatilla">
-                            <img src="./z4.png" alt="Air Jordan 3 Retro 'Pure Money'">
-                            <h3>Air Jordan 3 Retro 'Pure Money'</h3>
-                            <p>190 €</p>
-                        </a>
-                        
-                        <a href="./producto4.html" class="tarjeta-zapatilla">
-                            <img src="./z5.png" alt="Jordan x PSG Spizike Low">
-                            <h3>Jordan x PSG Spizike Low</h3>
-                            <p>110 €</p>
-                        </a>
-                        
-                        <a href="./producto3.html" class="tarjeta-zapatilla">
-                            <img src="./z6.png" alt="Saucony x Metagrid Progrid Paramount">
-                            <h3>Saucony x Metagrid Progrid Paramount</h3>
-                            <p>150 €</p>
-                        </a>
+                <div class="productos-grid">
+                    <a href="./producto2.html" class="tarjeta-zapatilla">
+                        <img src="./z1.png" alt="Air Jordan 4 Retro 'Cave Stone' [GS]">
+                        <h3>Air Jordan 4 Retro 'Cave Stone'</h3>
+                        <p>250 €</p>
+                    </a>
+
+                    <a href="./producto1.html" class="tarjeta-zapatilla">
+                        <img src="./z2.png" alt="Air Jordan 5 Retro OG 'Fire Red'">
+                        <h3>Air Jordan 5 Retro OG 'Fire Red'</h3>
+                        <p>230 €</p>
+                    </a>
+
+                    <a href="./producto6.html" class="tarjeta-zapatilla">
+                        <img src="z3.png" alt="Jordan Zion 4 'Voodoo'">
+                        <h3>Jordan Zion 4 'Voodoo'</h3>
+                        <p>170 €</p>
+                    </a>
+
+                    <a href="./producto5.html" class="tarjeta-zapatilla">
+                        <img src="z4.png" alt="Air Jordan 3 Retro 'Pure Money'">
+                        <h3>Air Jordan 3 Retro 'Pure Money'</h3>
+                        <p>190 €</p>
+                    </a>
+
+                    <a href="./producto4.html" class="tarjeta-zapatilla">
+                        <img src="z5.png" alt="Jordan x PSG Spizike Low">
+                        <h3>Jordan x PSG Spizike Low</h3>
+                        <p>110 €</p>
+                    </a>
+
+                    <a href="./producto3.html" class="tarjeta-zapatilla">
+                        <img src="z6.png" alt="Saucony x Metagrid Progrid Paramount">
+                        <h3>Saucony x Metagrid Progrid Paramount</h3>
+                        <p>150 €</p>
+                    </a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -241,7 +347,13 @@
                 <a href="#">Dirección</a>
             </div>
         </div>
-        <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+        
+        <div class="pie-division footer-legal">
+            <p>
+                <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+            
+            </p>
+        </div>
     </footer>
-    </body>
+</body>
 </html>

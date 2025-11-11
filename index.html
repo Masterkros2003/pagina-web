@@ -5,21 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Zapatillas Genial</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
-
+<audio autoplay loop>
+  <source src="videoplayback.m4a" type="audio/mpeg">
+</audio>
     <style>
+        html {
+            height: 100%;
+        }
+        
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        main {
+            flex-grow: 1;
+        }
+
         .contenedor { 
             max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
+            box-sizing: border-box;
         }
+
         img {
             max-width: 100%;
+            display: block;
         }
+
         a {
             text-decoration: none;
             color: inherit;
@@ -27,18 +45,23 @@
         
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 10px 20px;
             border-bottom: 1px solid #eee;
-            /* --- CORRECCIÓN: Navbar Fija --- */
             position: sticky;
             top: 0;
             background-color: white;
             z-index: 1000;
-            /* --- FIN CORRECCIÓN --- */
         }
-        /* --- CORRECCIÓN: Estilo de Navegación Unificado --- */
+
+        .header-contenido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 1100px;
+        }
+
         header nav.nav a {
             color: #555;
             margin: 0 10px;
@@ -49,7 +72,8 @@
         .hero {
             display: flex;
             align-items: center;
-            padding: 40px 20px;
+            padding-top: 40px;
+            padding-bottom: 40px;
             gap: 60px;
         }
         .hero h1 {
@@ -60,11 +84,19 @@
             background-color: #f0f0f0;
             padding: 40px 20px;
             text-align: center;
+        }
+
+        .beneficios-grid {
             display: flex;
             justify-content: space-around;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
         }
+
         .beneficio-item {
-            width: 30%;
+            flex-basis: 300px;
         }
 
         .banner {
@@ -81,30 +113,76 @@
         }
 
         .productos-seccion {
-            padding: 40px 0;
+            padding-top: 40px;
+            padding-bottom: 40px;
             text-align: center;
         }
         .productos-grid {
             display: flex;
             justify-content: space-around;
             gap: 20px;
+            flex-wrap: wrap;
         }
         .producto-card {
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
-            flex-basis: 30%;
+            flex-basis: 320px;
             text-align: left;
-            /* --- CORRECCIÓN: Asegurar que la tarjeta (ahora un <a>) se comporte como bloque --- */
             display: block;
+            transition: box-shadow 0.3s;
         }
+        .producto-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .producto-card img {
+            height: 200px;
+            object-fit: contain;
+            margin: 0 auto 10px auto;
+        }
+
+        .video-seccion {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .video-seccion h2 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 30px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
 
         .historia-seccion {
             display: flex;
             align-items: center;
             gap: 30px;
-            padding: 40px 20px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            flex-wrap: wrap;
         }
+        .historia-seccion .texto,
+        .historia-seccion .imagen {
+            flex-basis: 500px;
+            flex-grow: 1;
+        }
+
         .historia-seccion .texto a {
             background-color: #333;
             color: #fff;
@@ -124,9 +202,12 @@
             justify-content: space-between;
             max-width: 1100px;
             margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .espacio {
             padding: 0 15px;
+            min-width: 150px;
         }
         .espacio a, .espacio p {
             color: #382d23;
@@ -134,21 +215,41 @@
             margin-bottom: 12px;
             font-size: 14px;
         }
+        .footer-legal {
+            text-align: center;
+            font-size: 12px;
+            width: 1100px; 
+            margin: 30px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #382d23;
+        }
+        .footer-legal a {
+            font-weight: bold;
+        }
+        .footer-legal img {
+            max-width: 1em;
+            max-height: 1em;
+            margin-left: .2em;
+            display: inline;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
 
-    <header class="contenedor">
-        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
-        <nav class="nav"> 
-            <a href="./index.html">Inicio</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./tienda.html">Tienda</a> 
-        </nav>
+    <header>
+        <div class="header-contenido">
+            <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
+            <nav class="nav"> 
+                <a href="./index.html">Inicio</a>
+                <a href="./productos.html">Productos</a>
+                <a href="./tienda.html">Tienda</a> 
+            </nav>
+        </div>
     </header>
 
-    <main class="contenedor">
-        <section id="inicio" class="hero">
+    <main>
+        <section id="inicio" class="hero contenedor">
             <div class="texto">
                 <h1>Compra tus Zapatillas</h1>
                 <p><strong>50+</strong> Zapatillas | <strong>100+</strong> Marcas</p>
@@ -157,58 +258,65 @@
                 <img src="principal.png" alt="Zapatilla dibujada">
             </div>
         </section>
-    </main>
 
-    <section id="servicios" class="beneficios-seccion">
-        <div class="beneficio-item">
-            <h3>Asesoramiento</h3>
-            <p>Te ayudamos a elegir tu estilo.</p>
-        </div>
-        <div class="beneficio-item">
-            <h3>Envíos Rápidos</h3>
-            <p>Envíos gratis y seguros al 100%.</p>
-        </div>
-        <div class="beneficio-item">
-            <h3>Soporte 24/7</h3>
-            <p>Ayuda cuando la necesites.</p>
-        </div>
-    </section>
-
-    <section class="banner">
-      
+        <section id="servicios" class="beneficios-seccion">
+            <div class="beneficios-grid">
+                <div class="beneficio-item">
+                    <h3>Asesoramiento</h3>
+                    <p>Te ayudamos a elegir tu estilo.</p>
+                </div>
+                <div class="beneficio-item">
+                    <h3>Envíos Rápidos</h3>
+                    <p>Envíos gratis y seguros al 100%.</p>
+                </div>
+                <div class="beneficio-item">
+                    <h3>Soporte 24/7</h3>
+                    <p>Ayuda cuando la necesites.</p>
+                </div>
+            </div>
         </section>
 
-    <section id="productos" class="productos-seccion contenedor">
-        <h2>Novedades</h2>
-        <div class="productos-grid">
-            <a href="./producto2.html" class="producto-card">
-                <img src="./z1.png" alt="Air Jordan 4">
-                <h3>Air Jordan 4 Retro</h3>
-                <p>190 €</p>
-            </a>
-            <a href="./producto1.html" class="producto-card">
-                <img src="./z2.png" alt="Air Jordan 5">
-                <h3>Air Jordan 5 Retro</h3>
-                <p>210 €</p>
-            </a>
-            <a href="./producto6.html" class="producto-card">
-                <img src="./z3.png" alt="Jordan Zion">
-                <h3>Jordan Zion 2</h3>
-                <p>150 €</p>
-            </a>
-            </div>
-    </section>
+        <section class="banner">
+        </section>
 
-    <section id="historia" class="historia-seccion contenedor">
-        <div class="imagen">
-            <img src="zamarillas.png" alt="Zapatillas amarillas">
-        </div>
-        <div class="texto">
-            <h3>La historia de las Jordan</h3>
-            <p>La línea Air Jordan debe su nombre a Michael Jordan. Las Air Jordan 1 fueron las primeras y desde entonces la marca no ha parado de crecer.</p>
-            <a href="./productos.html">Ver más productos</a>
-        </div>
-    </section>
+        <section id="productos" class="productos-seccion contenedor">
+            <h2>Novedades</h2>
+            <div class="productos-grid">
+                <a href="./producto2.html" class="producto-card">
+                    <img src="z1.png" alt="Air Jordan 4">
+                    <h3>Air Jordan 4 Retro</h3>
+                    <p>190 €</p>
+                </a>
+                <a href="./producto1.html" class="producto-card">
+                    <img src="z2.png" alt="Air Jordan 5">
+                    <h3>Air Jordan 5 Retro</h3>
+                    <p>210 €</p>
+                </a>
+                <a href="./producto6.html" class="producto-card">
+                    <img src="z3.png" alt="Jordan Zion">
+                    <h3>Jordan Zion 2</h3>
+                    <p>150 €</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="video" class="video-seccion contenedor">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VnE7m8JI7MY?si=wYJVH6_-2JzSiTyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="historia" class="historia-seccion contenedor">
+            <div class="imagen">
+                <img src="zamarillas.png" alt="Zapatillas amarillas">
+            </div>
+            <div class="texto">
+                <h3>La historia de las Jordan</h3>
+                <p>La línea Air Jordan debe su nombre a Michael Jordan. Las Air Jordan 1 fueron las primeras y desde entonces la marca no ha parado de crecer.</p>
+                <a href="./productos.html">Ver más productos</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="pie-division">
@@ -235,7 +343,16 @@
                 <a href="#">Dirección</a>
             </div>
         </div>
-        <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
+        <div class="footer-legal">
+            <p>
+                <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND">
+            </p>
+        </div>
     </footer>
 
 </body>
