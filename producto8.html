@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Jordan 4 Retro "Cave Stone" (GS)| Tienda Sneaker</title>
+    <title>Camiseta Junior Jordan 88 City Black</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <audio autoplay loop>
         <source src="videoplayback.m4a" type="audio/mpeg">
@@ -253,20 +253,20 @@
     <main class="contenedor-main"> 
         <section id="detalle-producto">
             <div class="imagen-columna">
-                <img src="z1.png" class="imagen-producto" alt="Zapatilla Air Jordan 4 Cave Stone">
+                <img src="c2.png" class="imagen-producto" alt="Jordan Zion 4 Voodoo">
             </div>
 
             <div class="info-columna">
-                <h1>Air Jordan 4 Retro "Cave Stone" (GS)</h1>
-                <p class="precio">€150</p>
+                <h1>Camiseta Junior Jordan 88 City Black</h1>
+                <p class="precio">€25</p>
                 
                 <button 
                     class="boton-comprar"
                     onclick="addToCart(this)"
-                    data-id="air-jordan-4-cave-stone"
-                    data-name="Air Jordan 4 Retro Cave Stone (GS)"
-                    data-price="150.00"
-                    data-image="z1.png"
+                    data-id="jordan-88-city-black"
+                    data-name="Camiseta Junior Jordan 88 City Black"
+                    data-price="25.00"
+                    data-image="c2.png"
                 >
                     Comprar
                 </button>
@@ -275,7 +275,7 @@
                     <div class="descripcion-titulo">
                         <span>Descripción</span>
                     </div>
-                    <p>La Air Jordan 4 Retro "Cave Stone" (GS) es una zapatilla que destaca no solo por su diseño innovador, sino también por su calidad excepcional, fiel a la reputación de la marca Jordan. Diseñada para los más jóvenes que desean combinar estilo y comodidad, esta zapatilla presenta un atractivo color marrón que se complementa perfectamente con sus materiales de primera calidad, como la goma y la piel. Ideal para cualquier ocasión, la Air Jordan 4 Retro "Cave Stone" (GS) no solo proporciona un ajuste cómodo, sino que también eleva cualquier look casual con su inconfundible estética retro. </p>
+                    <p>Camiseta Junior Jordan 88 City Black. Esta camiseta para jóvenes combina esencia deportiva y comodidad diaria. Ofrece un tacto suave y buena resistencia al uso habitual. Su silueta clásica está diseñada con hombros ligeramente caídos, lo que aporta un perfil relajado sin perder estructura. En el pecho destaca el logotipo Jumpman estampado, que complementa de forma discreta cualquier estilo. El cuello redondo y los ribetes reforzados garantizan durabilidad y mantenimiento de la forma tras múltiples lavados.</p>
                 </div>
             </div>
         </section>
@@ -312,13 +312,12 @@
                 <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
                 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC">
                 <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY">
-                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC">
-                <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="ND">
+                <img src="https://mirrors.creativecommons.com/presskit/icons/nc.svg" alt="NC">
+                <img src="https://mirrors.creativecommons.com/presskit/icons/nd.svg" alt="ND">
             </p>
         </div>
     </footer>
     <script>
-        // Muestra la notificación de producto añadido
         function showNotification() {
             const notification = document.getElementById('notification');
             notification.classList.add('show');
@@ -327,7 +326,6 @@
             }, 2000); 
         }
 
-        // Función principal para añadir el producto al carrito (localStorage)
         function addToCart(button) {
             const product = {
                 id: button.dataset.id,
@@ -341,10 +339,8 @@
             let existingItem = cart.find(item => item.id === product.id);
 
             if (existingItem) {
-                // Si el producto ya existe, incrementa la cantidad
                 existingItem.quantity += 1;
             } else {
-                // Si es nuevo, añade el producto
                 cart.push(product);
             }
 

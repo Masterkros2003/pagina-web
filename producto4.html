@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <title>Jordan x PSG Spizike Low | Tienda Sneaker</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <audio autoplay loop>
-  <source src="videoplayback.m4a" type="audio/mpeg">
-</audio>
+        <source src="videoplayback.m4a" type="audio/mpeg">
+    </audio>
     <style>
         html {
             height: 100%;
@@ -27,10 +27,17 @@
         }
 
         .contenedor {
-            width: 1100px;
+            max-width: 1100px;
             margin: auto;
-            padding: 20px;
+            padding: 0 20px;
             box-sizing: border-box;
+        }
+
+        .contenedor-main {
+             max-width: 1100px;
+             margin: auto;
+             width: 100%;
+             box-sizing: border-box;
         }
 
         img {
@@ -44,31 +51,34 @@
         }
         
         header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px;
             position: sticky;
             top: 0;
             background-color: white;
             z-index: 1000;
             border-bottom: 1px solid #eee;
+            padding: 18px 0;
         }
         
-        .header-contenido {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1100px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: bold;
         }
 
         header nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
+            transition: color 0.2s;
         }
-        .logo {
-            font-weight: bold;
+        header nav.nav a:hover {
+            color: #d98d52;
         }
 
         #detalle-producto {
@@ -76,8 +86,10 @@
             gap: 50px;
             padding: 40px 0;
             align-items: center;
-            width: 1100px;
+            max-width: 1100px;
             margin: 40px auto;
+            padding: 0 20px; 
+            box-sizing: border-box;
         }
         
         .imagen-columna {
@@ -112,6 +124,10 @@
             margin-bottom: 30px;
             cursor: pointer;
             border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .boton-comprar:hover {
+            background-color: #d98d52;
         }
 
         .descripcion-caja {
@@ -133,16 +149,35 @@
             margin: 0;
         }
 
+        /* ESTILOS DE NOTIFICACIÓN */
+        #notification {
+            position: fixed;
+            top: 20px;
+            right: -350px; 
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: right 0.5s ease-in-out;
+            z-index: 2000;
+        }
+        #notification.show {
+            right: 20px; 
+        }
+        /* FIN ESTILOS DE NOTIFICACIÓN */
+
         footer {
             background-color: #d98d52;
             color: #382d23;
             padding: 50px 20px;
+            margin-top: auto;
         }
 
         .pie-division {
             display: flex;
             justify-content: space-between;
-            width: 1100px;
+            max-width: 1100px;
             margin: 0 auto;
             flex-wrap: wrap;
             gap: 20px;
@@ -163,7 +198,7 @@
         .footer-legal {
             text-align: center;
             font-size: 12px;
-            width: 1100px; 
+            max-width: 1100px; 
             margin: 30px auto 0 auto;
             padding-top: 20px;
             border-top: 1px solid #382d23;
@@ -178,21 +213,44 @@
             display: inline;
             vertical-align: middle;
         }
+        
+        @media (max-width: 1100px) {
+            .contenedor {
+                width: 100%;
+            }
+            #detalle-producto {
+                flex-direction: column;
+                width: auto;
+            }
+            .imagen-columna, .info-columna {
+                width: 100%;
+                padding-left: 0;
+            }
+            .pie-division, .footer-legal {
+                width: 100%;
+            }
+            .footer-legal {
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
 <body>
-   <header>
-       <div class="header-contenido">
+    <div id="notification">Producto añadido al carrito</div>
+
+    <header>
+       <div class="contenedor header-content">
             <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
             <nav class="nav"> 
                 <a href="./index.html">Inicio</a>
                 <a href="./productos.html">Productos</a>
                 <a href="./tienda.html">Tienda</a>
+                <a href="./carrito.html">Carrito</a>
             </nav>
         </div>
-   </header>
+    </header>
 
-    <main> 
+    <main class="contenedor-main"> 
         <section id="detalle-producto">
             <div class="imagen-columna">
                 <img src="z5.png" class="imagen-producto" alt="Jordan x PSG Spizike Low">
@@ -202,7 +260,16 @@
                 <h1>Jordan x PSG Spizike Low</h1>
                 <p class="precio">€120</p>
                 
-                <button class="boton-comprar">Comprar</button>
+                <button 
+                    class="boton-comprar"
+                    onclick="addToCart(this)"
+                    data-id="jordan-psg-spizike-low"
+                    data-name="Jordan x PSG Spizike Low"
+                    data-price="120.00"
+                    data-image="z5.png"
+                >
+                    Comprar
+                </button>
 
                 <div class="descripcion-caja">
                     <div class="descripcion-titulo">
@@ -241,7 +308,7 @@
         </div>
 
         <div class="footer-legal">
-             <p>
+            <p>
                 <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
                 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC">
                 <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY">
@@ -250,6 +317,37 @@
             </p>
         </div>
     </footer>
+    <script>
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000); 
+        }
 
+        function addToCart(button) {
+            const product = {
+                id: button.dataset.id,
+                name: button.dataset.name,
+                price: parseFloat(button.dataset.price),
+                image: button.dataset.image,
+                quantity: 1
+            };
+
+            let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            let existingItem = cart.find(item => item.id === product.id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
+            console.log('Producto añadido al carrito:', product.name, cart);
+            showNotification();
+        }
+    </script>
 </body>
 </html>

@@ -6,8 +6,8 @@
     <title>Tienda Completa - Zapatillas</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <audio autoplay loop>
-  <source src="videoplayback.m4a" type="audio/mpeg">
-</audio>
+        <source src="videoplayback.m4a" type="audio/mpeg">
+    </audio>
     <style>
         html {
             height: 100%; 
@@ -24,6 +24,7 @@
 
         img {
             max-width: 100%;
+            height: auto;
             display: block; 
         }
 
@@ -32,66 +33,69 @@
             color: inherit;
         }
 
-        .contenedor-centrado {
-            max-width: 1280px; 
+        /* --- CONTENEDORES GLOBALMENTE ARMÓNICOS (1100px para el contenido) --- */
+        .contenedor-general { 
+            max-width: 1100px; /* Usado en main section */
             margin: 0 auto;
-            padding: 0 20px; 
             width: 100%;
             box-sizing: border-box;
         }
+        .contenedor { 
+            max-width: 1100px; /* Usado en header para centrar */
+            margin: 0 auto;
+            padding: 0 10px; /* Padding horizontal para el contenido */
+        }
+        /* -------------------------------------------------- */
 
         main {
             flex-grow: 1;
             display: flex; 
         }
 
-        
+        /* --- HEADER (NavBar) - ESTILOS UNIFORMES CON MÁS ESPACIO --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
             background-color: white;
             z-index: 1000;
-           
+            border-bottom: 1px solid #eee; /* Línea divisoria completa */
+            padding: 18px 0; /* Aumentado de 10px a 18px para más espacio vertical */
         }
-
-        .header-contenido {
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            max-width: 1280px; 
-            margin: 0 auto;
         }
-
-        header nav.nav a {
+        
+        .logo { font-weight: bold; }
+        
+        nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
+            transition: color 0.2s;
         }
-
-        .logo {
-            font-weight: bold;
+        nav.nav a:hover {
+             color: #d98d52;
         }
+        /* ------------------------------------------- */
         
-       
+        
         #seccion-tienda {
             display: flex;
             width: 100%;
+            max-width: 1100px; /* Aseguramos que ocupe todo el ancho disponible del contenedor general */
+            margin: 0 auto;
         }
 
-       
+        
         .columna-filtros {
             width: 250px;
             flex-shrink: 0;
             padding: 20px;
             border-right: 1px solid #eee;
             box-sizing: border-box;
-            
             
             position: sticky;
             top: 60px; 
@@ -134,7 +138,7 @@
             background-color: #555;
         }
 
-       
+        
         .contenido-productos {
             flex-grow: 1; 
             padding: 20px;
@@ -150,12 +154,12 @@
       
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            /* Usamos valores relativos o responsive en vez de 3x1 para mejor adaptabilidad */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 20px; 
         }
 
         .tarjeta-zapatilla {
-           
             padding: 10px;
             text-align: center;
             border: 1px solid #ddd;
@@ -188,10 +192,12 @@
         }
 
         
+        /* --- FOOTER (Estilos de Contenido Armónico) --- */
         footer {
             background-color: #d98d52;
             color: #382d23;
             padding: 50px 20px;
+            margin-top: auto;
         }
 
         .pie-division {
@@ -199,7 +205,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px; 
-            max-width: 1280px; 
+            max-width: 1100px; 
             margin: 0 auto;
         }
 
@@ -208,6 +214,10 @@
             min-width: 150px; 
         }
 
+        .espacio h4 {
+            color: #382d23;
+            margin-top: 0;
+        }
         .espacio a,
         .espacio p {
             color: #382d23;
@@ -225,6 +235,7 @@
         }
         .footer-legal a {
             font-weight: bold;
+            color: #382d23;
         }
         .footer-legal img {
             max-width: 1em;
@@ -237,18 +248,20 @@
 </head>
 
 <body>
+    <!-- HEADER ACTUALIZADO: Con el contenedor interno para centrar y el borde en el header principal -->
     <header>
-        <div class="header-contenido">
+        <div class="contenedor header-content">
             <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
             <nav class="nav">
                 <a href="./index.html">Inicio</a>
                 <a href="./productos.html">Productos</a>
                 <a href="./tienda.html">Tienda</a>
+                <a href="./carrito.html">Carrito</a> <!-- Enlace añadido -->
             </nav>
         </div>
     </header>
 
-    <main>
+    <main class="contenedor-general"> 
         <section id="seccion-tienda">
 
             <div class="columna-filtros">
@@ -317,6 +330,24 @@
                         <h3>Saucony x Metagrid Progrid Paramount</h3>
                         <p>150 €</p>
                     </a>
+
+                    <a href="./producto7.html" class="tarjeta-zapatilla">
+                        <img src="c1.png" alt="Saucony x Metagrid Progrid Paramount">
+                        <h3>Camiseta Junior Luka Doncic Los Angeles Lakers 25-26 Statement Edition</h3>
+                        <p>30 €</p>
+                    </a>
+
+                    <a href="./producto8.html" class="tarjeta-zapatilla">
+                        <img src="c2.png" alt="Saucony x Metagrid Progrid Paramount">
+                        <h3>Camiseta Junior Jordan 88 City Black</h3>
+                        <p>25 €</p>
+                    </a>
+
+                    <a href="./producto9.html" class="tarjeta-zapatilla">
+                        <img src="c3.png" alt="Saucony x Metagrid Progrid Paramount">
+                        <h3>Camiseta Junior Jordan Printed Label Blue Chill</h3>
+                        <p>35 €</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -351,7 +382,10 @@
         <div class="pie-division footer-legal">
             <p>
                 <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
-            
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
             </p>
         </div>
     </footer>

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Zapatillas Genial</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
-<audio autoplay loop>
-  <source src="videoplayback.m4a" type="audio/mpeg">
-</audio>
+    <audio autoplay loop>
+        <source src="videoplayback.m4a" type="audio/mpeg">
+    </audio>
     <style>
         html {
             height: 100%;
@@ -26,12 +26,20 @@
             flex-grow: 1;
         }
 
+        /* --- CONTENEDORES GLOBALMENTE ARMÓNICOS (1100px) --- */
+        .contenedor-general { 
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
         .contenedor { 
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px; /* Ajustado para el header y main */
             box-sizing: border-box;
         }
+        /* -------------------------------------------------- */
 
         img {
             max-width: 100%;
@@ -43,31 +51,35 @@
             color: inherit;
         }
         
+        /* --- HEADER (NavBar) - ESTILOS UNIFORMES Y MÁS ESPACIO --- */
         header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
             background-color: white;
             z-index: 1000;
+            border-bottom: 1px solid #eee; /* Línea divisoria completa */
+            padding: 18px 0; /* Espacio vertical uniforme */
         }
 
-        .header-contenido {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1100px;
         }
+
+        .logo { font-weight: bold; }
 
         header nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
+            transition: color 0.2s;
         }
-        .logo { font-weight: bold; }
+        header nav.nav a:hover {
+            color: #d98d52;
+        }
+        /* -------------------------------------------------------- */
+
 
         .hero {
             display: flex;
@@ -100,7 +112,8 @@
         }
 
         .banner {
-            background-image: url('banner.png');
+            /* Nota: Asumo que la imagen 'banner.png' está disponible */
+            background-image: url('banner.png'); 
             background-size: cover;
             background-position: center;
             padding: 150px 50px;
@@ -192,10 +205,12 @@
             margin-top: 15px;
         }
 
+        /* --- FOOTER (Estilos de Contenido Armónico) --- */
         footer {
             background-color: #d98d52;
             color: #382d23;
             padding: 50px 20px;
+            margin-top: auto;
         }
         .pie-division {
             display: flex;
@@ -218,13 +233,14 @@
         .footer-legal {
             text-align: center;
             font-size: 12px;
-            width: 1100px; 
+            max-width: 1100px; /* Centramos el texto legal con el mismo ancho */
             margin: 30px auto 0 auto;
             padding-top: 20px;
             border-top: 1px solid #382d23;
         }
         .footer-legal a {
             font-weight: bold;
+            color: #382d23;
         }
         .footer-legal img {
             max-width: 1em;
@@ -233,17 +249,37 @@
             display: inline;
             vertical-align: middle;
         }
+        /* ------------------------------------------- */
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .historia-seccion {
+                 flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .pie-division {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="header-contenido">
+        <div class="contenedor header-content">
             <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
             <nav class="nav"> 
                 <a href="./index.html">Inicio</a>
                 <a href="./productos.html">Productos</a>
                 <a href="./tienda.html">Tienda</a> 
+                <a href="./carrito.html">Carrito</a> <!-- Enlace añadido -->
             </nav>
         </div>
     </header>
@@ -301,6 +337,7 @@
         </section>
 
         <section id="video" class="video-seccion contenedor">
+            <h2>Descubre Nuestra Última Colección</h2>
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/VnE7m8JI7MY?si=wYJVH6_-2JzSiTyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>

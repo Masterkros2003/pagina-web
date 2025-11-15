@@ -6,73 +6,145 @@
     <title>Tienda Oficial Jordan Fan</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <audio autoplay loop>
-  <source src="videoplayback.m4a" type="audio/mpeg">
-</audio>
+        <source src="videoplayback.m4a" type="audio/mpeg">
+    </audio>
     <style>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        /* --- CONTENEDORES GLOBALMENTE ARMÓNICOS (1100px) --- */
         .contenedor-general { 
             max-width: 1100px;
             margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
         .contenedor { 
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
+        /* -------------------------------------------------- */
+
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
         a {
             text-decoration: none;
             color: inherit;
         }
-        
+
+        /* --- HEADER (NavBar) --- */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-bottom: 1px solid #eee;
             position: sticky;
             top: 0;
             background-color: white;
             z-index: 1000;
+            border-bottom: 1px solid #eee;
+            padding: 18px 0;
         }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo { font-weight: bold; }
+
         nav.nav a {
             color: #555;
             margin: 0 10px;
             font-size: 16px;
+            transition: color 0.2s;
+        }
+        nav.nav a:hover {
+            color: #d98d52;
+        }
+        /* -------------------------------------------------- */
+
+        main { 
+            flex-grow: 1;
         }
 
-        #detalle-producto {
+        /* --- SECCIÓN DE INFORMACIÓN PRINCIPAL (Restaurada) --- */
+        #info-principal {
             display: flex;
             gap: 50px;
             padding: 40px 20px;
             align-items: center; 
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .imagen-columna {
+        #info-principal .imagen-columna {
             flex: 1;
             min-width: 400px;
         }
-        .imagen-columna img {
+        #info-principal .imagen-columna img {
             border-radius: 8px;
         }
-        .info-columna {
+        #info-principal .info-columna {
             flex: 1;
             padding-left: 20px;
         }
-        .info-columna p strong { 
+        #info-principal .info-columna p strong { 
             font-size: 20px; 
             display: block;
             margin-bottom: 10px;
         }
+        /* ---------------------------------------------------- */
+
+
+        /* --- SLIDER DE IMÁGENES (CARRUSEL) --- */
+        .slider-container {
+            width: 100%;
+            max-width: 500px;
+            height: 500px; /* Altura reducida a 300px */
+            margin: 40px auto; /* Centrar y añadir margen superior/inferior */
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .slider-images {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slide-animation 15s infinite; 
+        }
+
+        .slide {
+            width: 33.33%;
+            flex-shrink: 0;
+        }
         
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Animación de desplazamiento CSS */
+        @keyframes slide-animation {
+            0% { transform: translateX(0); }
+            28% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            61% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            94% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* --- SECCIÓN PRODUCTOS DESTACADOS --- */
         .productos-seccion {
             padding: 40px 0;
             text-align: center;
@@ -97,6 +169,10 @@
             margin-bottom: 20px; 
             display: block; 
             box-sizing: border-box; 
+            transition: box-shadow 0.3s;
+        }
+        .tarjeta-zapatilla:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
         }
         
         .tarjeta-zapatilla img {
@@ -118,19 +194,23 @@
             font-weight: normal; 
         }
 
+        /* --- FOOTER --- */
         footer {
             background-color: #d98d52;
             color: #382d23;
             padding: 50px 20px;
+            margin-top: auto;
         }
         .pie-division {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             max-width: 1100px;
             margin: 0 auto;
         }
         .espacio {
             padding: 0 15px;
+            min-width: 150px;
         }
         .espacio a, .espacio p {
             color: #382d23;
@@ -138,24 +218,64 @@
             margin-bottom: 12px;
             font-size: 14px;
         }
+        .footer-legal-text {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            padding-top: 20px;
+            border-top: 1px solid #382d23;
+        }
+        .footer-legal-text a {
+            font-weight: bold;
+            color: #382d23;
+        }
+        .footer-legal-text img {
+            max-width: 1em;
+            max-height: 1em;
+            margin-left: .2em;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #info-principal {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            #info-principal .imagen-columna {
+                min-width: 100%;
+            }
+            .slider-container {
+                height: 200px;
+            }
+            .pie-division {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 
 <body>
-   <header class="contenedor">
-        <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
-        <nav class="nav"> 
-            <a href="./index.html">Inicio</a>
-            <a href="./productos.html">Productos</a>
-            <a href="./tienda.html">Tienda</a> 
-        </nav>
+    <header>
+        <div class="contenedor header-content">
+            <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
+            <nav class="nav"> 
+                <a href="./index.html">Inicio</a>
+                <a href="./productos.html">Productos</a>
+                <a href="./tienda.html">Tienda</a> 
+                <a href="./carrito.html">Carrito</a>
+            </nav>
+        </div>
     </header>
 
     <main class="contenedor-general">
         
-        <section id="detalle-producto">
+        <section id="info-principal">
             <div class="imagen-columna">
-                <img src="./interior.png" class="imagen-producto" alt="Interior de la tienda">
+                <img src="./interior.png" class="imagen-producto" alt="Air Jordan 5 Fire Red">
             </div>
             <div class="info-columna">
                 <div class="descripcion-titulo">
@@ -164,9 +284,37 @@
                 </div>
             </div>
         </section>
+
+
+          <section id="productos-seccion-principal" class="productos-seccion contenedor-general">
+            <h2>NUESTRAS CAMISETAS</h2>
+            <p>Aquí podemos ver la gran variedad de camisetas que tenemos</p>
+
+          <section class="slider-container">
+            <div class="slider-images">
+                <div class="slide">
+
+                    <img src="./c1.png" alt="Jordan PSG - Novedades">
+                </div>
+                <div class="slide">
+
+                    <img src="./c2.png" alt="Jordan Zion Voodoo - Edición Limitada">
+                </div>
+                <div class="slide">
+
+                    <img src="./c3.png" alt="Saucony Collab - Diseño Exclusivo">
+                </div>
+            </div>
+        </section>
+        </section>
+        
+        
+      
+        
+        <!-- FIN CARRUSEL DE IMÁGENES -->
         
         <section id="productos-seccion-principal" class="productos-seccion contenedor-general">
-            <h2>NUESTROS PRODUCTOS</h2>
+            <h2>NUESTRAS ZAPATILLAS</h2>
             <p>Aquí podemos ver la gran variedad de zapatillas que tenemos</p>
 
             <div class="productos-grid">
@@ -210,7 +358,7 @@
 
     </main>
 
-       <footer>
+    <footer>
         <div class="pie-division">
             <div class="espacio">
                 <h4>Contáctanos</h4>
@@ -235,8 +383,13 @@
                 <a href="#">Dirección</a>
             </div>
         </div>
-        <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
-
+        <div class="footer-legal-text">
+            <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+        </div>
     </footer>
 
 </body>
