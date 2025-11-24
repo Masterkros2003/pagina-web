@@ -1,0 +1,156 @@
+/*
+|--------------------------------------------------------------------------
+| ESTRUCTURA SASS SIMULADA
+|--------------------------------------------------------------------------
+| Este archivo simula el resultado de la compilación SASS, donde se
+| importan y modifican los temas de Bootstrap.
+|
+| Colores del Tema:
+| - Primary (Acento): #d98d52 (Naranja tierra/marrón claro)
+| - Secondary (Texto/Fondo): #333 (Gris oscuro)
+| - White: #ffffff
+|
+*/
+
+/* 1. Modificaciones de Variables de Bootstrap */
+:root {
+    --bs-primary: #d98d52;
+    --bs-secondary: #333;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+    --bs-success: #28a745;
+    --bs-info: #17a2b8;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-font-sans-serif: 'Inter', Arial, Helvetica, sans-serif; 
+}
+
+/* 2. Estilos Base Globales */
+body {
+    font-family: var(--bs-font-sans-serif);
+    color: var(--bs-secondary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Contenedores */
+.container-xxl { 
+    max-width: 1300px;
+}
+.container-xl { 
+    max-width: 1100px;
+}
+.rounded-8 {
+    border-radius: 0.8rem;
+}
+
+/* Animación del Audio (Invisible) */
+audio {
+    display: none;
+}
+
+/* Estilo para los botones principales (que no son de Bootstrap por defecto) */
+.btn-primary-custom {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary-custom:hover {
+    background-color: #a86c3a; /* Un tono más oscuro para el hover */
+    border-color: #a86c3a;
+    color: #fff;
+}
+
+/* 3. Estilos de Componentes (Adaptación a Bootstrap) */
+
+/* NavBar */
+.navbar-brand {
+    font-weight: bold;
+    color: var(--bs-secondary) !important;
+}
+.navbar-nav .nav-link {
+    color: var(--bs-secondary) !important;
+    font-weight: 500;
+}
+.navbar-nav .nav-link:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bs-light); /* Fondo claro para el footer */
+    color: var(--bs-secondary);
+    border-top: 5px solid var(--bs-primary);
+}
+footer a {
+    color: var(--bs-secondary);
+}
+footer a:hover {
+    color: var(--bs-primary);
+}
+
+/* Títulos y Componentes específicos de la tienda */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 0.8rem;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-card img {
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover img {
+    transform: scale(1.05); 
+}
+
+/* Estilos de las páginas de autenticación */
+.auth-container {
+    max-width: 450px;
+}
+
+/* Estilos del Carrito */
+.cart-header {
+    border-bottom: 2px solid var(--bs-primary);
+    padding-bottom: 10px;
+}
+.cart-summary-card {
+    background-color: #f9f9f9;
+}
+.cart-total-line {
+    border-top: 2px solid var(--bs-primary);
+}
+
+/* Estilos del Modal de Confirmación */
+.modal-content {
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.modal-header {
+    background-color: var(--bs-primary);
+    color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: none;
+}
+.modal-header .btn-close {
+    filter: invert(1);
+}
+.modal-icon {
+    font-size: 3rem;
+    color: var(--bs-primary);
+}
