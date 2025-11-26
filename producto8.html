@@ -4,149 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camiseta Junior Jordan 88 City Black</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <audio autoplay loop>
         <source src="videoplayback.m4a" type="audio/mpeg">
     </audio>
     <style>
-        html {
-            height: 100%;
+        /* CSS personalizado para el color del footer y hover del link */
+        :root {
+            --bs-footer-bg: #d98d52;
+            --bs-footer-color: #382d23;
+            --bs-link-hover-color: #d98d52; /* Color de hover para el header */
         }
         
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
-        
+
         main {
             flex-grow: 1; 
         }
 
-        .contenedor {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
-            box-sizing: border-box;
+        .header-nav .nav-link:hover {
+            color: var(--bs-link-hover-color) !important;
         }
 
-        .contenedor-main {
-             max-width: 1100px;
-             margin: auto;
-             width: 100%;
-             box-sizing: border-box;
-        }
-
-        img {
-            width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        header {
-            position: sticky;
-            top: 0;
-            background-color: white;
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-            padding: 18px 0;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-weight: bold;
-        }
-
-        header nav.nav a {
-            color: #555;
-            margin: 0 10px;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
-        header nav.nav a:hover {
-            color: #d98d52;
-        }
-
-        #detalle-producto {
-            display: flex;
-            gap: 50px;
-            padding: 40px 0;
-            align-items: center;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px; 
-            box-sizing: border-box;
-        }
-        
-        .imagen-columna {
-            width: 500px;
-            flex-shrink: 0;
-        }
-        
-        .info-columna {
-            width: 500px;
-            padding-left: 20px;
-            flex-shrink: 0;
-        }
-        
-        h1 {
-            font-size: 24px;
-            margin: 0 0 10px 0;
-        }
-
-        .precio {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        
-        .boton-comprar {
+        /* Botón de Comprar */
+        .btn-custom-dark {
             background-color: #333;
             color: white;
-            padding: 15px 30px;
-            border: 0;
-            width: 100%;
-            font-size: 16px;
-            margin-bottom: 30px;
-            cursor: pointer;
-            border-radius: 4px;
             transition: background-color 0.3s;
         }
-        .boton-comprar:hover {
-            background-color: #d98d52;
-        }
 
-        .descripcion-caja {
-            border: 1px solid #ddd;
-            margin-top: 20px;
-            padding: 10px 15px;
-            border-radius: 4px;
-        }
-
-        .descripcion-titulo {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .descripcion-caja p {
-            font-size: 14px;
-            font-weight: normal;
-            line-height: 1.5;
-            margin: 0;
+        .btn-custom-dark:hover {
+            background-color: var(--bs-link-hover-color);
+            color: white; /* Asegurar que el texto siga siendo blanco */
         }
 
         /* ESTILOS DE NOTIFICACIÓN */
@@ -167,156 +61,107 @@
         }
         /* FIN ESTILOS DE NOTIFICACIÓN */
 
+        /* Footer */
         footer {
-            background-color: #d98d52;
-            color: #382d23;
-            padding: 50px 20px;
-            margin-top: auto;
+            background-color: var(--bs-footer-bg);
+            color: var(--bs-footer-color);
         }
 
-        .pie-division {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1100px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .espacio {
-            padding: 0 15px;
-            min-width: 150px;
-        }
-
-        .espacio a, .espacio p {
-            color: #382d23;
-            display: block;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .footer-legal {
-            text-align: center;
-            font-size: 12px;
-            max-width: 1100px; 
-            margin: 30px auto 0 auto;
-            padding-top: 20px;
-            border-top: 1px solid #382d23;
-        }
         .footer-legal a {
             font-weight: bold;
-        }
-        .footer-legal img {
-            max-width: 1em;
-            max-height: 1em;
-            margin-left: .2em;
-            display: inline;
-            vertical-align: middle;
-        }
-        
-        @media (max-width: 1100px) {
-            .contenedor {
-                width: 100%;
-            }
-            #detalle-producto {
-                flex-direction: column;
-                width: auto;
-            }
-            .imagen-columna, .info-columna {
-                width: 100%;
-                padding-left: 0;
-            }
-            .pie-division, .footer-legal {
-                width: 100%;
-            }
-            .footer-legal {
-                padding: 0 20px;
-            }
+            color: var(--bs-footer-color); /* Asegurar color en el footer */
         }
     </style>
 </head>
-<body>
+<body class="bg-light">
     <div id="notification">Producto añadido al carrito</div>
 
-    <header>
-       <div class="contenedor header-content">
-            <a href="./index.html" class="logo"><strong>SNEAKERS</strong></a>
-            <nav class="nav"> 
-                <a href="./index.html">Inicio</a>
-                <a href="./productos.html">Productos</a>
-                <a href="./tienda.html">Tienda</a>
-                <a href="./carrito.html">Carrito</a>
-            </nav>
+    <header class="sticky-top bg-white border-bottom shadow-sm">
+        <div class="container py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="./index.html" class="navbar-brand text-dark fs-5"><strong>SNEAKERS</strong></a>
+                <nav class="header-nav"> 
+                    <a href="./index.html" class="text-secondary text-decoration-none mx-2 mx-md-3 nav-link d-inline-block">Inicio</a>
+                    <a href="./productos.html" class="text-secondary text-decoration-none mx-2 mx-md-3 nav-link d-inline-block">Productos</a>
+                    <a href="./tienda.html" class="text-secondary text-decoration-none mx-2 mx-md-3 nav-link d-inline-block">Tienda</a>
+                    <a href="./carrito.html" class="text-secondary text-decoration-none mx-2 mx-md-3 nav-link d-inline-block">Carrito</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="contenedor-main"> 
-        <section id="detalle-producto">
-            <div class="imagen-columna">
-                <img src="c2.png" class="imagen-producto" alt="Jordan Zion 4 Voodoo">
+    <main class="container my-5"> 
+        <section id="detalle-producto" class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <img src="c2.png" class="img-fluid rounded shadow-lg" alt="Jordan Zion 4 Voodoo">
             </div>
 
-            <div class="info-columna">
-                <h1>Camiseta Junior Jordan 88 City Black</h1>
-                <p class="precio">€25</p>
-                
-                <button 
-                    class="boton-comprar"
-                    onclick="addToCart(this)"
-                    data-id="jordan-88-city-black"
-                    data-name="Camiseta Junior Jordan 88 City Black"
-                    data-price="25.00"
-                    data-image="c2.png"
-                >
-                    Comprar
-                </button>
+            <div class="col-lg-6">
+                <div class="p-3 p-lg-0">
+                    <h1 class="fs-3 mb-2">Camiseta Junior Jordan 88 City Black</h1>
+                    <p class="precio fs-2 fw-bold mb-4">€25</p>
+                    
+                    <button 
+                        class="btn btn-custom-dark w-100 py-3 mb-4 text-uppercase" 
+                        onclick="addToCart(this)"
+                        data-id="jordan-88-city-black"
+                        data-name="Camiseta Junior Jordan 88 City Black"
+                        data-price="25.00"
+                        data-image="c2.png"
+                    >
+                        Comprar
+                    </button>
 
-                <div class="descripcion-caja">
-                    <div class="descripcion-titulo">
-                        <span>Descripción</span>
+                    <div class="descripcion-caja border p-3 rounded mt-3">
+                        <div class="descripcion-titulo fw-bold mb-2">
+                            <span>Descripción</span>
+                        </div>
+                        <p class="text-muted small mb-0">Camiseta Junior Jordan 88 City Black. Esta camiseta para jóvenes combina esencia deportiva y comodidad diaria. Ofrece un tacto suave y buena resistencia al uso habitual. Su silueta clásica está diseñada con hombros ligeramente caídos, lo que aporta un perfil relajado sin perder estructura. En el pecho destaca el logotipo Jumpman estampado, que complementa de forma discreta cualquier estilo. El cuello redondo y los ribetes reforzados garantizan durabilidad y mantenimiento de la forma tras múltiples lavados.</p>
                     </div>
-                    <p>Camiseta Junior Jordan 88 City Black. Esta camiseta para jóvenes combina esencia deportiva y comodidad diaria. Ofrece un tacto suave y buena resistencia al uso habitual. Su silueta clásica está diseñada con hombros ligeramente caídos, lo que aporta un perfil relajado sin perder estructura. En el pecho destaca el logotipo Jumpman estampado, que complementa de forma discreta cualquier estilo. El cuello redondo y los ribetes reforzados garantizan durabilidad y mantenimiento de la forma tras múltiples lavados.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="pie-division">
-            <div class="espacio">
-                <h4>Contáctanos</h4>
-                <p>Infojordan@gmail.com</p>
-                <p>Carlos Hurtado Cánovas</p>
+    <footer class="mt-auto py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <h4 class="mb-3 text-uppercase fs-6">Contáctanos</h4>
+                    <p class="small mb-2">Infojordan@gmail.com</p>
+                    <p class="small mb-2">Carlos Hurtado Cánovas</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h4 class="mb-3 text-uppercase fs-6">Información</h4>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Sobre</a>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Productos</a>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Blog</a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h4 class="mb-3 text-uppercase fs-6">Compañía</h4>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Community</a>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Sobre Nosotros</a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h4 class="mb-3 text-uppercase fs-6">Contacto</h4>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Redes Sociales</a>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Teléfono</a>
+                    <a href="#" class="d-block small text-decoration-none text-dark mb-2">Dirección</a>
+                </div>
             </div>
-            <div class="espacio">
-                <h4>Información</h4>
-                <a href="#">Sobre</a>
-                <a href="#">Productos</a>
-                <a href="#">Blog</a>
-            </div>
-            <div class="espacio">
-                <h4>Compañía</h4>
-                <a href="#">Community</a>
-                <a href="#">Sobre Nosotros</a>
-            </div>
-            <div class="espacio">
-                <h4>Contacto</h4>
-                <a href="#">Redes Sociales</a>
-                <a href="#">Teléfono</a>
-                <a href="#">Dirección</a>
-            </div>
-        </div>
 
-        <div class="footer-legal">
-            <p>
-                <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
-                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC">
-                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY">
-                <img src="https://mirrors.creativecommons.com/presskit/icons/nc.svg" alt="NC">
-                <img src="https://mirrors.creativecommons.com/presskit/icons/nd.svg" alt="ND">
-            </p>
+            <div class="footer-legal text-center pt-4 mt-4 border-top border-dark-subtle">
+                <p class="small mb-0">
+                    <a href="https://pagina-web-gold-theta.vercel.app/" class="text-decoration-none">SNEAKERS</a> © 2025 by <a href="https://pagina-web-gold-theta.vercel.app/" class="text-decoration-none">SNEAKERS</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="text-decoration-none">CC BY-NC-ND 4.0</a>
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="max-width: 1em; max-height: 1em; margin-left: .2em; display: inline; vertical-align: middle;">
+                    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style="max-width: 1em; max-height: 1em; display: inline; vertical-align: middle;">
+                    <img src="https://mirrors.creativecommons.com/presskit/icons/nc.svg" alt="NC" style="max-width: 1em; max-height: 1em; display: inline; vertical-align: middle;">
+                    <img src="https://mirrors.creativecommons.com/presskit/icons/nd.svg" alt="ND" style="max-width: 1em; max-height: 1em; display: inline; vertical-align: middle;">
+                </p>
+            </div>
         </div>
     </footer>
+
     <script>
         function showNotification() {
             const notification = document.getElementById('notification');
@@ -349,5 +194,6 @@
             showNotification();
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
